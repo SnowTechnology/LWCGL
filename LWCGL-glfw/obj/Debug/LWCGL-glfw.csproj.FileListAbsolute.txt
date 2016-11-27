@@ -1,0 +1,6 @@
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\bin\Debug\LWCGL-glfw.exe.config
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\bin\Debug\LWCGL-glfw.exe
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\bin\Debug\LWCGL-glfw.pdb
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\obj\Debug\LWCGL-glfw.csprojResolveAssemblyReference.cache
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\obj\Debug\LWCGL-glfw.exe
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-glfw\obj\Debug\LWCGL-glfw.pdb

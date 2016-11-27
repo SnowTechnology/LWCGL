@@ -1,0 +1,6 @@
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\bin\Debug\LWCGL-core.exe.config
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\bin\Debug\LWCGL-core.exe
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\bin\Debug\LWCGL-core.pdb
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\obj\Debug\LWCGL-core.csprojResolveAssemblyReference.cache
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\obj\Debug\LWCGL-core.exe
+D:\Workspace\csharp\LWCGL\LWCGL\LWCGL-core\obj\Debug\LWCGL-core.pdb
