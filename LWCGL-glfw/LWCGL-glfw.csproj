@@ -48,6 +48,9 @@
     <Compile Include="LWCGL\GLFW\Glfw64.cs" />
     <Compile Include="LWCGL\GLFW\Glfw32.cs" />
     <Compile Include="LWCGL\GLFW\GlfwDelegates.cs" />
+    <Compile Include="LWCGL\GLFW\GlfwDelegateTypes.cs" />
+    <Compile Include="LWCGL\GLFW\GlfwEnum.cs" />
+    <Compile Include="LWCGL\GLFW\GlfwStructs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -29,5 +29,14 @@ namespace LWCGL.GLFW
         internal static extern void glfwGetVersion(out int major, out int minor, out int rev);
         [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
         internal static extern sbyte* glfwGetVersionString();
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwMonitor* glfwGetMonitors(out int count);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwMonitor glfwGetPrimaryMonitor();
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwGetMonitorPos(GlfwMonitor monitor, out int xPos, out int yPos);
+
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwErrorFun glfwSetErrorCallback(GlfwErrorFun cbFun);
     }
 }

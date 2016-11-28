@@ -43,6 +43,23 @@ namespace LWCGL.GLFW
             return new string(GlfwDelegates.glfwGetVersionString());
         }
 
+        public static GlfwMonitor[] GetMonitors()
+        {
+            int count;
+            GlfwMonitor* array = GlfwDelegates.glfwGetMonitors(out count);
+            GlfwMonitor[] result = new GlfwMonitor[count];
+            for (int i = 0; i < count; i++)
+            {
+                result[i] = array[i];
+            }
+            return result;
+        }
+
+        public static GlfwMonitor GetPrimaryMonitor()
+        {
+            return GlfwDelegates.glfwGetPrimaryMonitor();
+        }
+
 #pragma warning restore 0414
     }
 }

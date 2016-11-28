@@ -47,10 +47,16 @@ namespace LWCGL.GLFW
         internal delegate void GetVersion(out int major, out int minor, out int rev);
         [SuppressUnmanagedCodeSecurity]
         internal delegate sbyte* GetVersionString();
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate GlfwMonitor* GetMonitors(out int count);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate GlfwMonitor GetPrimaryMonitor();
 
         internal static Init glfwInit;
         internal static Terminate glfwTerminate;
         internal static GetVersion glfwGetVersion;
         internal static GetVersionString glfwGetVersionString;
+        internal static GetMonitors glfwGetMonitors;
+        internal static GetPrimaryMonitor glfwGetPrimaryMonitor;
     }
 }
