@@ -51,6 +51,22 @@ namespace LWCGL.GLFW
         internal delegate GlfwMonitor* GetMonitors(out int count);
         [SuppressUnmanagedCodeSecurity]
         internal delegate GlfwMonitor GetPrimaryMonitor();
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void GetMonitorPos(GlfwMonitor monitor, out int xPos, out int yPos);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void GetMonitorPhysicalSize(GlfwMonitor monitor, out int width, out int height);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate sbyte* GetMonitorName(GlfwMonitor monitor);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate GlfwVidMode* GetVideoModes(GlfwMonitor monitor, out int count);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate GlfwVidMode GetVideoMode(GlfwMonitor monitor);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void SetGamma(GlfwMonitor monitor, float gamma);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void SetGammaRamp(GlfwMonitor monitor, ref GlfwGammaRamp ramp);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void GetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp);
 
         internal static Init glfwInit;
         internal static Terminate glfwTerminate;
@@ -58,5 +74,13 @@ namespace LWCGL.GLFW
         internal static GetVersionString glfwGetVersionString;
         internal static GetMonitors glfwGetMonitors;
         internal static GetPrimaryMonitor glfwGetPrimaryMonitor;
+        internal static GetMonitorPos glfwGetMonitorPos;
+        internal static GetMonitorPhysicalSize glfwGetMonitorPhysicalSize;
+        internal static GetMonitorName glfwGetMonitorName;
+        internal static GetVideoModes glfwGetVideoModes;
+        internal static GetVideoMode glfwGetVideoMode;
+        internal static SetGamma glfwSetGamma;
+        internal static SetGammaRamp glfwSetGammaRamp;
+        internal static GetGammaRamp glfwGetGammaRamp;
     }
 }

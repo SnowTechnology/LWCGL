@@ -32,6 +32,8 @@ namespace LWCGL
             Console.WriteLine("Successfully initialized GLFW!");
             Console.WriteLine("GLFW " + Glfw.GetVersionString());
 
+            Console.WriteLine(Glfw.GetPrimaryMonitor());
+
             Console.ReadLine();
 
             Glfw.Terminate();

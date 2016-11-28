@@ -35,6 +35,20 @@ namespace LWCGL.GLFW
         internal static extern GlfwMonitor glfwGetPrimaryMonitor();
         [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
         internal static extern void glfwGetMonitorPos(GlfwMonitor monitor, out int xPos, out int yPos);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwGetMonitorPhysicalSize(GlfwMonitor monitor, out int width, out int height);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern sbyte* glfwGetMonitorName(GlfwMonitor monitor);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwVidMode* glfwGetVideoModes(GlfwMonitor monitor, out int count);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwVidMode glfwGetVideoMode(GlfwMonitor monitor);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwSetGamma(GlfwMonitor monitor, float gamma);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwSetGammaRamp(GlfwMonitor monitor, ref GlfwGammaRamp ramp);
+        [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwGetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp);
 
         [DllImport("natives/glfw64.dll"), SuppressUnmanagedCodeSecurity]
         internal static extern GlfwErrorFun glfwSetErrorCallback(GlfwErrorFun cbFun);

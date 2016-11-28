@@ -138,7 +138,7 @@ namespace LWCGL.GLFW
 
         override public string ToString()
         {
-            return "GlfwWindow(" + this.pointer + ")";
+            return "GlfwMonitor(" + this.pointer + ")";
         }
 
         public readonly static GlfwWindow Null = new GlfwWindow(IntPtr.Zero);

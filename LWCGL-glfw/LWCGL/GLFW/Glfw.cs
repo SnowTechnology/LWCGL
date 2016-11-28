@@ -18,14 +18,11 @@ namespace LWCGL.GLFW
 {
     public static unsafe class Glfw
     {
-        public const int TRUE = 0x1;
-        public const int FALSE = 0x0;
-
 #pragma warning disable 0414
 
         public static bool Init()
         {
-            return GlfwDelegates.glfwInit() == TRUE;
+            return GlfwDelegates.glfwInit() == (int) GlfwBool.True;
         }
 
         public static void Terminate()
@@ -58,6 +55,53 @@ namespace LWCGL.GLFW
         public static GlfwMonitor GetPrimaryMonitor()
         {
             return GlfwDelegates.glfwGetPrimaryMonitor();
+        }
+
+        public static void GetMonitorPos(GlfwMonitor monitor, out int xPos, out int yPos)
+        {
+            GlfwDelegates.glfwGetMonitorPos(monitor, out xPos, out yPos);
+        }
+
+        public static void GetMonitorPhysicalSize(GlfwMonitor monitor, out int width, out int height)
+        {
+            GlfwDelegates.glfwGetMonitorPhysicalSize(monitor, out width, out height);
+        }
+
+        public static string GetMonitorName(GlfwMonitor monitor)
+        {
+            return new string(GlfwDelegates.glfwGetMonitorName(monitor));
+        }
+
+        public static GlfwVidMode[] GetVideoModes(GlfwMonitor monitor)
+        {
+            int count;
+            GlfwVidMode* array = GlfwDelegates.glfwGetVideoModes(monitor, out count);
+            GlfwVidMode[] result = new GlfwVidMode[count];
+            for (int i = 0; i < count; i++)
+            {
+                result[i] = array[i];
+            }
+            return result;
+        }
+
+        public static GlfwVidMode GetVideoMode(GlfwMonitor monitor)
+        {
+            return GlfwDelegates.glfwGetVideoMode(monitor);
+        }
+
+        public static void SetGamma(GlfwMonitor monitor, float gamma)
+        {
+            GlfwDelegates.glfwSetGamma(monitor, gamma);
+        }
+
+        public static void SetGammaRamp(GlfwMonitor monitor, ref GlfwGammaRamp ramp)
+        {
+            GlfwDelegates.glfwSetGammaRamp(monitor, ref ramp);
+        }
+
+        public static void GetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp)
+        {
+            GlfwDelegates.glfwGetGammaRamp(monitor, out ramp);
         }
 
 #pragma warning restore 0414

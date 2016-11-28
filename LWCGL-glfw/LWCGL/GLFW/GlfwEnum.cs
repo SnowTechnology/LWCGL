@@ -16,6 +16,12 @@
 
 namespace LWCGL.GLFW
 {
+    public enum GlfwBool
+    {
+        False = 0,
+        True  = 1
+    }
+
     public enum GlfwKeyModifiers
     {
         Shift   = 1 << 0, // 1
