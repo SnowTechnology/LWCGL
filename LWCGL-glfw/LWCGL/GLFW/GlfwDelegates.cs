@@ -26,7 +26,7 @@ namespace LWCGL.GLFW
     {
         static GlfwDelegates()
         {
-            Type glfwInterop = (IntPtr.Size == 8) ? typeof(Glfw64) : typeof(Glfw32);
+            Type glfwInterop = typeof(Glfw32); // (IntPtr.Size == 8) ? typeof(Glfw64) : typeof(Glfw32);
 
             FieldInfo[] fields = typeof(GlfwDelegates).GetFields(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
             foreach (FieldInfo fi in fields)
@@ -66,7 +66,24 @@ namespace LWCGL.GLFW
         [SuppressUnmanagedCodeSecurity]
         internal delegate void SetGammaRamp(GlfwMonitor monitor, ref GlfwGammaRamp ramp);
         [SuppressUnmanagedCodeSecurity]
-        internal delegate void GetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp);
+        internal delegate void GetGammaRamp(GlfwMonitor monitor, out GlfwGammaRampInternal ramp);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void DefaultWindowHints();
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void WindowHint(GlfwWindowHint target, int hint);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate GlfwWindow CreateWindow(int width, int height, [MarshalAs(UnmanagedType.LPStr)] string title, GlfwMonitor monitor, GlfwWindow share);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void DestroyWindow(GlfwWindow window);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void SetWindowShouldClose(GlfwWindow window, int close);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate int WindowShouldClose(GlfwWindow window);
+
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void SwapBuffers(GlfwWindow window);
+        [SuppressUnmanagedCodeSecurity]
+        internal delegate void PollEvents();
 
         internal static Init glfwInit;
         internal static Terminate glfwTerminate;
@@ -82,5 +99,14 @@ namespace LWCGL.GLFW
         internal static SetGamma glfwSetGamma;
         internal static SetGammaRamp glfwSetGammaRamp;
         internal static GetGammaRamp glfwGetGammaRamp;
+        internal static DefaultWindowHints glfwDefaultWindowHints;
+        internal static WindowHint glfwWindowHint;
+        internal static CreateWindow glfwCreateWindow;
+        internal static DestroyWindow glfwDestroyWindow;
+        internal static SetWindowShouldClose glfwSetWindowShouldClose;
+        internal static WindowShouldClose glfwWindowShouldClose;
+
+        internal static SwapBuffers glfwSwapBuffers;
+        internal static PollEvents glfwPollEvents;
     }
 }

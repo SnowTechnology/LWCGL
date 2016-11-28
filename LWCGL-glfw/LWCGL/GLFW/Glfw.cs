@@ -14,6 +14,8 @@
 // limitations under the License.
 #endregion
 
+using System.Runtime.InteropServices;
+
 namespace LWCGL.GLFW
 {
     public static unsafe class Glfw
@@ -101,7 +103,65 @@ namespace LWCGL.GLFW
 
         public static void GetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp)
         {
-            GlfwDelegates.glfwGetGammaRamp(monitor, out ramp);
+            GlfwGammaRampInternal rampI;
+            GlfwDelegates.glfwGetGammaRamp(monitor, out rampI);
+            uint length = rampI.Length;
+            ramp = new GlfwGammaRamp();
+            ramp.Red = new uint[length];
+            ramp.Green = new uint[length];
+            ramp.Blue = new uint[length];
+            for (int i = 0; i < ramp.Red.Length; ++i)
+            {
+                ramp.Red[i] = rampI.Red[i];
+            }
+            for (int i = 0; i < ramp.Green.Length; ++i)
+            {
+                ramp.Green[i] = rampI.Green[i];
+            }
+            for (int i = 0; i < ramp.Blue.Length; ++i)
+            {
+                ramp.Blue[i] = rampI.Blue[i];
+            }
+        }
+
+        public static void DefaultWindowHints()
+        {
+            GlfwDelegates.glfwDefaultWindowHints();
+        }
+
+        public static void WindowHint(GlfwWindowHint target, int hint)
+        {
+            GlfwDelegates.glfwWindowHint(target, hint);
+        }
+
+        public static GlfwWindow CreateWindow(int width, int height, string title, GlfwMonitor monitor, GlfwWindow share)
+        {
+            return GlfwDelegates.glfwCreateWindow(width, height, title, monitor, share);
+        }
+
+        public static void DestroyWindow(GlfwWindow window)
+        {
+            GlfwDelegates.glfwDestroyWindow(window);
+        }
+
+        public static void SetWindowShouldClose(GlfwWindow window, GlfwBool close)
+        {
+            GlfwDelegates.glfwSetWindowShouldClose(window, (int) close);
+        }
+
+        public static bool WindowShouldClose(GlfwWindow window)
+        {
+            return GlfwDelegates.glfwWindowShouldClose(window) == 1;
+        }
+
+        public static void SwapBuffers(GlfwWindow window)
+        {
+            GlfwDelegates.glfwSwapBuffers(window);
+        }
+
+        public static void PollEvents()
+        {
+            GlfwDelegates.glfwPollEvents();
         }
 
 #pragma warning restore 0414

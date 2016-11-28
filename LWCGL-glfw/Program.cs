@@ -27,16 +27,31 @@ namespace LWCGL
             if (!Glfw.Init())
             {
                 Console.WriteLine("Failed to initialize GLFW!");
+                Glfw.Terminate();
+                return;
             }
 
             Console.WriteLine("Successfully initialized GLFW!");
             Console.WriteLine("GLFW " + Glfw.GetVersionString());
 
-            Console.WriteLine(Glfw.GetPrimaryMonitor());
+            Glfw.DefaultWindowHints();
+            GlfwWindow window = Glfw.CreateWindow(960, 540, "SnowEngine!", GlfwMonitor.Null, GlfwWindow.Null);
+            if (!window)
+            {
+                Console.WriteLine("Failed to create the window!");
+                Glfw.Terminate();
+                return;
+            }
+
+            while (!Glfw.WindowShouldClose(window))
+            {
+                Glfw.SwapBuffers(window);
+                Glfw.PollEvents();
+            }
+            
+            Glfw.Terminate();
 
             Console.ReadLine();
-
-            Glfw.Terminate();
         }
     }
 }

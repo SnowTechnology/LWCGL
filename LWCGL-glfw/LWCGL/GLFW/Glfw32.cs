@@ -48,7 +48,24 @@ namespace LWCGL.GLFW
         [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
         internal static extern void glfwSetGammaRamp(GlfwMonitor monitor, ref GlfwGammaRamp ramp);
         [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
-        internal static extern void glfwGetGammaRamp(GlfwMonitor monitor, out GlfwGammaRamp ramp);
+        internal static extern void glfwGetGammaRamp(GlfwMonitor monitor, out GlfwGammaRampInternal ramp);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwDefaultWindowHints();
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwWindowHint(GlfwWindowHint target, int hint);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern GlfwWindow glfwCreateWindow(int width, int height, [MarshalAs(UnmanagedType.LPStr)] string title, GlfwMonitor monitor, GlfwWindow share);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwDestroyWindow(GlfwWindow window);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwSetWindowShouldClose(GlfwWindow window, int close);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern int glfwWindowShouldClose(GlfwWindow window);
+
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwSwapBuffers(GlfwWindow window);
+        [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
+        internal static extern void glfwPollEvents();
 
         [DllImport("natives/glfw32.dll"), SuppressUnmanagedCodeSecurity]
         internal static extern GlfwErrorFun glfwSetErrorCallback(GlfwErrorFun cbFun);
